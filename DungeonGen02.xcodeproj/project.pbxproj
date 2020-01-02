@@ -14,6 +14,8 @@
 		F45F4B0723B3E7C20020333B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45F4B0623B3E7C20020333B /* ViewController.swift */; };
 		F45F4B0923B3E7C40020333B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F45F4B0823B3E7C40020333B /* Assets.xcassets */; };
 		F45F4B0C23B3E7C40020333B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F45F4B0A23B3E7C40020333B /* Main.storyboard */; };
+		F45F4B1523B3E9E00020333B /* MapClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45F4B1423B3E9E00020333B /* MapClass.swift */; };
+		F45F4B1A23B4EBA60020333B /* random.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45F4B1923B4EBA60020333B /* random.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		F45F4B0B23B3E7C40020333B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F45F4B0D23B3E7C40020333B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F45F4B0E23B3E7C40020333B /* DungeonGen02.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DungeonGen02.entitlements; sourceTree = "<group>"; };
+		F45F4B1423B3E9E00020333B /* MapClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapClass.swift; sourceTree = "<group>"; };
+		F45F4B1923B4EBA60020333B /* random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = random.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 				F45F4B0A23B3E7C40020333B /* Main.storyboard */,
 				F45F4B0D23B3E7C40020333B /* Info.plist */,
 				F45F4B0E23B3E7C40020333B /* DungeonGen02.entitlements */,
+				F45F4B1423B3E9E00020333B /* MapClass.swift */,
+				F45F4B1923B4EBA60020333B /* random.swift */,
 			);
 			path = DungeonGen02;
 			sourceTree = "<group>";
@@ -145,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F45F4B0723B3E7C20020333B /* ViewController.swift in Sources */,
+				F45F4B1523B3E9E00020333B /* MapClass.swift in Sources */,
 				F45F4B0523B3E7C20020333B /* GameScene.swift in Sources */,
+				F45F4B1A23B4EBA60020333B /* random.swift in Sources */,
 				F45F4AFF23B3E7C20020333B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
