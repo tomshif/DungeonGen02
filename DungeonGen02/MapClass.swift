@@ -25,7 +25,7 @@ class MapClass
     
     var TILESIZE:CGFloat=0
     
-    let ROOMDISTANCE:Int=14
+    let ROOMDISTANCE:Int=12
     
     init(width:Int, height:Int, theScene: GameScene)
     {
@@ -48,7 +48,7 @@ class MapClass
         print("Test \(mapGrid[5*height+3])")
         
         // choose number of rooms
-        let roomNum=Int(random(min:2, max: 2.9999999999))
+        let roomNum=Int(random(min:5, max: 10.9999999999))
         
         // pick the location for the rooms
         
@@ -137,7 +137,7 @@ class MapClass
             print("room num = \(i)")
             // choose to draw vertical or horizontal path first
             let choice=random(min:0, max: 1)
-            if choice < 0.5
+            if choice < 1   // TEST -- Forcing vertical first
             {
                 if dy > 0
                 {
@@ -159,12 +159,78 @@ class MapClass
                 
                 // next draw horizontal
                 
+                // TEST - Breaking the midpoint of line in half and offsetting the horizontal if the dx is positive
                 if dx > 0
                 {
+                    var midpoint:Int=0
+                    var offset:Int=0
+                    var currentOffset:Int=0
+                    if dx > 10
+                    {
+                        midpoint=dx/2
+                        let offChance=random(min: 0, max: 1)
+                        if offChance > 0.65
+                        {
+                            offset=Int(random(min: 0, max: 12))
+                        }
+                        
+                        let chance=random(min: 0, max: 1)
+                        if chance > 0.5
+                        {
+                            offset = -offset
+                        }
+                    } // if dx > 10
+                    
                     for xPath in 0..<dx
                     {
-                            print("dx = \(dx)")
-                        mapGrid[(roomPoints[i].y-dy)*width+roomPoints[i].x-xPath]=2
+                        
+                        
+
+                        mapGrid[(roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath]=2
+                        
+                        print("xPath = \(xPath)")
+                        print("midpoint = \(midpoint)")
+                        print("currentOffset = \(currentOffset)")
+                        print("offset = \(offset)")
+                        
+                        if offset >= 0
+                        {
+                            if xPath < midpoint && currentOffset < offset
+                            {
+                                if (roomPoints[i].y-dy-currentOffset-2)*width+roomPoints[i].x-xPath > 2 && (roomPoints[i].y-dy-currentOffset-2)*width+roomPoints[i].x-xPath < mapGrid.count-2
+                                {
+                                    
+                                    currentOffset += 1
+                                    print((roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath)
+                                    mapGrid[(roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath]=2
+                                } // if within bounds
+                            } // if xPath && currentOffset
+                        } // if offset is positive
+                        else
+                        {
+                            if xPath < midpoint && currentOffset > offset
+                            {
+                                if (roomPoints[i].y-dy-currentOffset+2)*width+roomPoints[i].x-xPath > 3 && (roomPoints[i].y-dy-currentOffset+2)*width+roomPoints[i].x-xPath < mapGrid.count-3
+                                {
+                                    
+                                    currentOffset -= 1
+                                    print((roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath)
+                                    mapGrid[(roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath]=2
+                                } // if within bounds
+                            } // if xPath && currentOffset
+                            
+                        } // else if offset is negative
+                        
+                        if xPath > midpoint && currentOffset > 0 && offset >= 0
+                        {
+                            currentOffset -= 1
+                            mapGrid[(roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath]=2
+                        }
+                        if xPath > midpoint && currentOffset < 0 && offset < 0
+                        {
+                            currentOffset += 1
+                            mapGrid[(roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath]=2
+                        }
                     } // for each y difference
                 }
                 else if dx < 0
@@ -192,7 +258,7 @@ class MapClass
                             print("dx = \(dx)")
                         mapGrid[(roomPoints[i].y)*width+roomPoints[i].x-xPath]=2
                     } // for each y difference
-                }
+                } // if dx is positive
                 else if dx < 0
                 {
                     for xPath in 0 ..< -dx
@@ -203,7 +269,7 @@ class MapClass
                         print("xPath= \(xPath)")
                         mapGrid[(roomPoints[i].y)*width+roomPoints[i].x+xPath]=2
                     } // for each y difference
-                }
+                } // else
                 
                 if dy > 0
                  {
