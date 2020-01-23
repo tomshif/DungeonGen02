@@ -25,6 +25,13 @@ class MapClass
     
     var TILESIZE:CGFloat=0
     
+    // Level creation ranges
+    var MINROOMSIZE:Int=4
+    var MAXROOMSIZE:Int=12
+    
+    var MINNUMROOMS:Int=3
+    var MAXNUMROOMS:Int=10
+    
     let ROOMDISTANCE:Int=12
     
     init(width:Int, height:Int, theScene: GameScene)
@@ -56,7 +63,7 @@ class MapClass
     private func createLevel()
     {
         // choose number of rooms
-        let roomNum=Int(random(min:5, max: 10.9999999999))
+        let roomNum=Int(random(min:CGFloat(MINNUMROOMS), max: CGFloat(MAXNUMROOMS)+0.9999999999))
         
         // pick the location for the rooms
         
@@ -103,8 +110,8 @@ class MapClass
         var largestSize:Int=0
         for i in 0..<roomPoints.count
         {
-            let roomWidth:Int=Int(random(min:4, max: 10))
-            let roomHeight:Int=Int(random(min:4, max: 10))
+            let roomWidth:Int=Int(random(min:CGFloat(MINROOMSIZE), max: CGFloat(MAXROOMSIZE)+0.9999999999))
+            let roomHeight:Int=Int(random(min:CGFloat(MINROOMSIZE), max: CGFloat(MAXROOMSIZE)+0.9999999999))
             
             if i > 0
             {
