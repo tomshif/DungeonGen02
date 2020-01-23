@@ -47,6 +47,14 @@ class MapClass
         
         print("Test \(mapGrid[5*height+3])")
         
+        createLevel()
+        drawGrid()
+
+        
+    } // init()
+    
+    private func createLevel()
+    {
         // choose number of rooms
         let roomNum=Int(random(min:5, max: 10.9999999999))
         
@@ -62,8 +70,8 @@ class MapClass
             while (!goodSpot)
             {
                 goodSpot=true
-                roomX=Int(random(min: 4, max: CGFloat(width)-4))
-                roomY=Int(random(min: 4, max: CGFloat(height)-4))
+                roomX=Int(random(min: 4, max: CGFloat(mapWidth)-4))
+                roomY=Int(random(min: 4, max: CGFloat(mapHeight)-4))
                 print( "Last Line")
                 // check for rooms nearby
                 if roomPoints.count > 0
@@ -85,7 +93,7 @@ class MapClass
 
             } // while we are still looking for a good spot
             
-            mapGrid[roomX+roomY*width]=2
+            mapGrid[roomX+roomY*mapWidth]=2
             roomPoints.append((x: roomX, y: roomY))
             
             
@@ -116,9 +124,9 @@ class MapClass
                     
                     let dx=roomPoints[i].x + x
                     let dy=roomPoints[i].y + y
-                    if dy < height-1 && dx < width-1
+                    if dy < mapHeight-1 && dx < mapWidth-1
                     {
-                        mapGrid[dy*width+dx]=2
+                        mapGrid[dy*mapWidth+dx]=2
                     } // This is a messy way to avoid a crash. Needs to be cleaner by choosing rooms that are NOT right next to the edge
                 } // for x
             } // for y
@@ -145,7 +153,7 @@ class MapClass
                     for yPath in 0..<dy
                     {
 
-                        mapGrid[(roomPoints[i].y-yPath)*width+roomPoints[i].x]=2
+                        mapGrid[(roomPoints[i].y-yPath)*mapWidth+roomPoints[i].x]=2
                     } // for each y difference
                 } // if drawing up
                 else if dy < 0
@@ -153,7 +161,7 @@ class MapClass
                     for yPath in 0 ..< (-dy)
                     {
 
-                        mapGrid[(roomPoints[i].y+yPath)*width+roomPoints[i].x]=2
+                        mapGrid[(roomPoints[i].y+yPath)*mapWidth+roomPoints[i].x]=2
                     } // for each y difference
                 } // else if drawing down
                 
@@ -186,7 +194,7 @@ class MapClass
                         
                         
 
-                        mapGrid[(roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath]=2
+                        mapGrid[(roomPoints[i].y-dy-currentOffset)*mapWidth+roomPoints[i].x-xPath]=2
                         
                         print("xPath = \(xPath)")
                         print("midpoint = \(midpoint)")
@@ -197,12 +205,12 @@ class MapClass
                         {
                             if xPath < midpoint && currentOffset < offset
                             {
-                                if (roomPoints[i].y-dy-currentOffset-2)*width+roomPoints[i].x-xPath > 2 && (roomPoints[i].y-dy-currentOffset-2)*width+roomPoints[i].x-xPath < mapGrid.count-2
+                                if (roomPoints[i].y-dy-currentOffset-2)*mapWidth+roomPoints[i].x-xPath > 2 && (roomPoints[i].y-dy-currentOffset-2)*mapWidth+roomPoints[i].x-xPath < mapGrid.count-2
                                 {
                                     
                                     currentOffset += 1
-                                    print((roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath)
-                                    mapGrid[(roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath]=2
+                                    print((roomPoints[i].y-dy-currentOffset)*mapWidth+roomPoints[i].x-xPath)
+                                    mapGrid[(roomPoints[i].y-dy-currentOffset)*mapWidth+roomPoints[i].x-xPath]=2
                                 } // if within bounds
                             } // if xPath && currentOffset
                         } // if offset is positive
@@ -210,12 +218,12 @@ class MapClass
                         {
                             if xPath < midpoint && currentOffset > offset
                             {
-                                if (roomPoints[i].y-dy-currentOffset+2)*width+roomPoints[i].x-xPath > 3 && (roomPoints[i].y-dy-currentOffset+2)*width+roomPoints[i].x-xPath < mapGrid.count-3
+                                if (roomPoints[i].y-dy-currentOffset+2)*mapWidth+roomPoints[i].x-xPath > 3 && (roomPoints[i].y-dy-currentOffset+2)*mapWidth+roomPoints[i].x-xPath < mapGrid.count-3
                                 {
                                     
                                     currentOffset -= 1
-                                    print((roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath)
-                                    mapGrid[(roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath]=2
+                                    print((roomPoints[i].y-dy-currentOffset)*mapWidth+roomPoints[i].x-xPath)
+                                    mapGrid[(roomPoints[i].y-dy-currentOffset)*mapWidth+roomPoints[i].x-xPath]=2
                                 } // if within bounds
                             } // if xPath && currentOffset
                             
@@ -224,12 +232,12 @@ class MapClass
                         if xPath > midpoint && currentOffset > 0 && offset >= 0
                         {
                             currentOffset -= 1
-                            mapGrid[(roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath]=2
+                            mapGrid[(roomPoints[i].y-dy-currentOffset)*mapWidth+roomPoints[i].x-xPath]=2
                         }
                         if xPath > midpoint && currentOffset < 0 && offset < 0
                         {
                             currentOffset += 1
-                            mapGrid[(roomPoints[i].y-dy-currentOffset)*width+roomPoints[i].x-xPath]=2
+                            mapGrid[(roomPoints[i].y-dy-currentOffset)*mapWidth+roomPoints[i].x-xPath]=2
                         }
                     } // for each y difference
                 }
@@ -241,7 +249,7 @@ class MapClass
                         
                        print("dx = \(dx)")
                         print("xPath= \(xPath)")
-                        mapGrid[(roomPoints[i].y-dy)*width+roomPoints[i].x+xPath]=2
+                        mapGrid[(roomPoints[i].y-dy)*mapWidth+roomPoints[i].x+xPath]=2
                     } // for each y difference
                 }
                 
@@ -256,7 +264,7 @@ class MapClass
                     for xPath in 0..<dx
                     {
                             print("dx = \(dx)")
-                        mapGrid[(roomPoints[i].y)*width+roomPoints[i].x-xPath]=2
+                        mapGrid[(roomPoints[i].y)*mapWidth+roomPoints[i].x-xPath]=2
                     } // for each y difference
                 } // if dx is positive
                 else if dx < 0
@@ -267,7 +275,7 @@ class MapClass
                         
                        print("dx = \(dx)")
                         print("xPath= \(xPath)")
-                        mapGrid[(roomPoints[i].y)*width+roomPoints[i].x+xPath]=2
+                        mapGrid[(roomPoints[i].y)*mapWidth+roomPoints[i].x+xPath]=2
                     } // for each y difference
                 } // else
                 
@@ -277,7 +285,7 @@ class MapClass
                      for yPath in 0..<dy
                      {
 
-                         mapGrid[(roomPoints[i].y-yPath)*width+roomPoints[i].x-dx]=2
+                         mapGrid[(roomPoints[i].y-yPath)*mapWidth+roomPoints[i].x-dx]=2
                      } // for each y difference
                  } // if drawing up
                  else if dy < 0
@@ -285,7 +293,7 @@ class MapClass
                      for yPath in 0 ..< (-dy)
                      {
 
-                         mapGrid[(roomPoints[i].y+yPath)*width+roomPoints[i].x-dx]=2
+                         mapGrid[(roomPoints[i].y+yPath)*mapWidth+roomPoints[i].x-dx]=2
                      } // for each y difference
                  } // else if drawing down
                  
@@ -302,14 +310,14 @@ class MapClass
         
         
         // mark off walls
-        for y in 0..<height
+        for y in 0..<mapHeight
         {
-            for x in 0..<width
+            for x in 0..<mapWidth
             {
                 if mapGrid[convertXY(x: x, y: y)] != 2
                 {
                     // check above
-                    if y < height-1
+                    if y < mapHeight-1
                     {
                         if mapGrid[convertXY(x: x, y: y+1)] == 2
                         {
@@ -317,7 +325,7 @@ class MapClass
                         }
                     }
                     // check right
-                    if x < width-1
+                    if x < mapWidth-1
                     {
                         if mapGrid[convertXY(x: x+1, y: y)] == 2
                         {
@@ -348,7 +356,7 @@ class MapClass
                             mapGrid[convertXY(x: x, y: y)] = 1
                         }
                     }
-                    if y < height-1 && x < width-1
+                    if y < mapHeight-1 && x < mapWidth-1
                     {
                         if mapGrid[convertXY(x: x+1, y: y+1)] == 2
                         {
@@ -356,14 +364,14 @@ class MapClass
                         }
                     }
                     
-                    if y > 0 && x < width-1
+                    if y > 0 && x < mapWidth-1
                     {
                         if mapGrid[convertXY(x: x+1, y: y-1)] == 2
                         {
                             mapGrid[convertXY(x: x, y: y)] = 1
                         }
                     }
-                    if y < height-1 && x > 0
+                    if y < mapHeight-1 && x > 0
                     {
                         if mapGrid[convertXY(x: x-1, y: y+1)] == 2
                         {
@@ -375,19 +383,28 @@ class MapClass
         } // for y
         
         
+
+        
+        startRoomIndex=0
+        endRoomIndex=roomPoints.count-1
+        
+    } // createLevel
+    
+    private func drawGrid()
+    {
         // draw grid
-        for y in 0..<height
+        for y in 0..<mapHeight
         {
-            for x in 0..<width
+            for x in 0..<mapWidth
             {
-                switch mapGrid[x+y*height]
+                switch mapGrid[x+y*mapHeight]
                 {
                     
                 case 1: // blocked grid
                     let tempFloor=SKSpriteNode(imageNamed: "walls")
                     tempFloor.setScale(8.0)
-                    tempFloor.position.x = (CGFloat(x)*tempFloor.size.width) - (CGFloat(width)*tempFloor.size.width)/2
-                    tempFloor.position.y = (CGFloat(y)*tempFloor.size.height) - (CGFloat(height)*tempFloor.size.width)/2
+                    tempFloor.position.x = (CGFloat(x)*tempFloor.size.width) - (CGFloat(mapWidth)*tempFloor.size.width)/2
+                    tempFloor.position.y = (CGFloat(y)*tempFloor.size.height) - (CGFloat(mapHeight)*tempFloor.size.width)/2
                     tempFloor.name="dngBlock"
                     tempFloor.texture!.filteringMode=SKTextureFilteringMode.nearest
                     
@@ -401,8 +418,8 @@ class MapClass
                     
                     let tempFloor=SKSpriteNode(imageNamed: "floor")
                     tempFloor.setScale(8.0)
-                    tempFloor.position.x = (CGFloat(x)*tempFloor.size.width) - (CGFloat(width)*tempFloor.size.width)/2
-                    tempFloor.position.y = (CGFloat(y)*tempFloor.size.height) - (CGFloat(height)*tempFloor.size.width)/2
+                    tempFloor.position.x = (CGFloat(x)*tempFloor.size.width) - (CGFloat(mapWidth)*tempFloor.size.width)/2
+                    tempFloor.position.y = (CGFloat(y)*tempFloor.size.height) - (CGFloat(mapHeight)*tempFloor.size.width)/2
                     tempFloor.name="dngFloor"
                     tempFloor.texture!.filteringMode=SKTextureFilteringMode.nearest
 
@@ -415,10 +432,7 @@ class MapClass
             } // for x
         } // for y
         
-        startRoomIndex=0
-        endRoomIndex=roomPoints.count-1
-        
-    } // init()
+    } // drawGrid
     
     private func convertXY(x: Int, y:Int) -> Int
     {
