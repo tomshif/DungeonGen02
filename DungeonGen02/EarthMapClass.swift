@@ -15,10 +15,12 @@ class EarthMapClass:MapClass
     {
         super.init(width: width, height: height, theScene: theScene)
         
-        ROOMDISTANCE=8
-        MINNUMROOMS=20
-        MAXNUMROOMS=25
+        ROOMDISTANCE=3
+        MINNUMROOMS=4
+        MAXNUMROOMS=7
         
+        createLevel()
+        drawGrid()
     }
     
     

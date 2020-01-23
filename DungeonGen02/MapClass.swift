@@ -32,7 +32,7 @@ class MapClass
     var MINNUMROOMS:Int=3
     var MAXNUMROOMS:Int=10
     
-    let ROOMDISTANCE:Int=12
+    var ROOMDISTANCE:Int=12
     
     init(width:Int, height:Int, theScene: GameScene)
     {

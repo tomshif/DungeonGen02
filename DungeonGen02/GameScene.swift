@@ -30,7 +30,9 @@ class GameScene: SKScene {
         addChild(cam)
         
         tempMap=EarthMapClass(width: 96, height: 96, theScene: self)
-        
+        print(tempMap!.roomPoints.count)
+        print(tempMap!.roomPoints[tempMap!.startRoomIndex].x)
+        print(tempMap!.roomPoints[tempMap!.startRoomIndex].y)
         cam.position.x = CGFloat(tempMap!.roomPoints[tempMap!.startRoomIndex].x)*tempMap!.TILESIZE - (CGFloat(tempMap!.mapWidth)*tempMap!.TILESIZE) / 2
         cam.position.y = CGFloat(tempMap!.roomPoints[tempMap!.startRoomIndex].y)*tempMap!.TILESIZE - (CGFloat(tempMap!.mapHeight)*tempMap!.TILESIZE)/2
     }
