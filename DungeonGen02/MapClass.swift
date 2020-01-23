@@ -25,7 +25,7 @@ class MapClass
     
     var TILESIZE:CGFloat=0
     
-    let ROOMDISTANCE:Int=12
+    var ROOMDISTANCE:Int=12
     
     init(width:Int, height:Int, theScene: GameScene)
     {
@@ -46,14 +46,11 @@ class MapClass
         } // for y
         
         print("Test \(mapGrid[5*height+3])")
-        
-        createLevel()
-        drawGrid()
 
         
     } // init()
     
-    private func createLevel()
+    internal func createLevel()
     {
         // choose number of rooms
         let roomNum=Int(random(min:5, max: 10.9999999999))
@@ -390,7 +387,7 @@ class MapClass
         
     } // createLevel
     
-    private func drawGrid()
+    internal func drawGrid()
     {
         // draw grid
         for y in 0..<mapHeight

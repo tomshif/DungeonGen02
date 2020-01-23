@@ -29,7 +29,7 @@ class GameScene: SKScene {
         self.camera=cam
         addChild(cam)
         
-        tempMap=MapClass(width: 96, height: 96, theScene: self)
+        tempMap=EarthMapClass(width: 96, height: 96, theScene: self)
         
         cam.position.x = CGFloat(tempMap!.roomPoints[tempMap!.startRoomIndex].x)*tempMap!.TILESIZE - (CGFloat(tempMap!.mapWidth)*tempMap!.TILESIZE) / 2
         cam.position.y = CGFloat(tempMap!.roomPoints[tempMap!.startRoomIndex].y)*tempMap!.TILESIZE - (CGFloat(tempMap!.mapHeight)*tempMap!.TILESIZE)/2
@@ -145,7 +145,7 @@ class GameScene: SKScene {
             } // if not nil
         } // for each node
         
-        tempMap=MapClass(width: 64, height: 64, theScene: self)
+        tempMap=EarthMapClass(width: 96, height: 96, theScene: self)
         
     } // respawnDungeon()
     
