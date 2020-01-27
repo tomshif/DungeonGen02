@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4426DB9C23DF74B300ABBEED /* WindMapClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DB9B23DF74B300ABBEED /* WindMapClass.swift */; };
 		4478693123DA3035006CB5CB /* EarthMapClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478693023DA3035006CB5CB /* EarthMapClass.swift */; };
 		F45F4AFF23B3E7C20020333B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45F4AFE23B3E7C20020333B /* AppDelegate.swift */; };
 		F45F4B0123B3E7C20020333B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F45F4B0023B3E7C20020333B /* GameScene.sks */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4426DB9B23DF74B300ABBEED /* WindMapClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindMapClass.swift; sourceTree = "<group>"; };
 		4478693023DA3035006CB5CB /* EarthMapClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthMapClass.swift; sourceTree = "<group>"; };
 		F45F4AFB23B3E7C20020333B /* DungeonGen02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DungeonGen02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45F4AFE23B3E7C20020333B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				F45F4B0E23B3E7C40020333B /* DungeonGen02.entitlements */,
 				F45F4B1423B3E9E00020333B /* MapClass.swift */,
 				4478693023DA3035006CB5CB /* EarthMapClass.swift */,
+				4426DB9B23DF74B300ABBEED /* WindMapClass.swift */,
 				F45F4B1923B4EBA60020333B /* random.swift */,
 			);
 			path = DungeonGen02;
@@ -156,6 +159,7 @@
 				F45F4B0723B3E7C20020333B /* ViewController.swift in Sources */,
 				F45F4B1523B3E9E00020333B /* MapClass.swift in Sources */,
 				4478693123DA3035006CB5CB /* EarthMapClass.swift in Sources */,
+				4426DB9C23DF74B300ABBEED /* WindMapClass.swift in Sources */,
 				F45F4B0523B3E7C20020333B /* GameScene.swift in Sources */,
 				F45F4B1A23B4EBA60020333B /* random.swift in Sources */,
 				F45F4AFF23B3E7C20020333B /* AppDelegate.swift in Sources */,

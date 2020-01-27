@@ -29,7 +29,7 @@ class GameScene: SKScene {
         self.camera=cam
         addChild(cam)
         
-        tempMap=EarthMapClass(width: 96, height: 96, theScene: self)
+        tempMap=WindMapClass(width: 96, height: 96, theScene: self)
         print(tempMap!.roomPoints.count)
         print(tempMap!.roomPoints[tempMap!.startRoomIndex].x)
         print(tempMap!.roomPoints[tempMap!.startRoomIndex].y)
@@ -147,7 +147,7 @@ class GameScene: SKScene {
             } // if not nil
         } // for each node
         
-        tempMap=EarthMapClass(width: 96, height: 96, theScene: self)
+        tempMap=WindMapClass(width: 96, height: 96, theScene: self)
         
     } // respawnDungeon()
     
@@ -156,7 +156,7 @@ class GameScene: SKScene {
     {
         if zoomOutPressed
         {
-            cam.setScale(cam.xScale+0.02)
+            cam.setScale(cam.xScale+1)
         }
         if zoomInPressed && cam.xScale > 0.01
         {
