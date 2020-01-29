@@ -11,11 +11,16 @@ import SpriteKit
 
 class EarthMapClass:MapClass
 {
+    
+    var addMushroom:Bool=false
+    var mushroomChance:CGFloat=0
+    
     override init(width:Int, height:Int, theScene: GameScene)
     {
         super.init(width: width, height: height, theScene: theScene)
         
         ROOMDISTANCE=3
+        MAXROOMDISTANCE=42
         MINNUMROOMS=4
         MAXNUMROOMS=7
         MINROOMSIZE=2
@@ -23,6 +28,7 @@ class EarthMapClass:MapClass
         
         createLevel()
         drawGrid()
+        spawnMushrooms()
     }
     
     
@@ -68,7 +74,21 @@ class EarthMapClass:MapClass
            } // for y
     }
     
-
+    func spawnMushrooms()
+    {
+        for i in 0...roomPoints.count
+        {
+            print("")
+            let mushroom=SKSpriteNode(imageNamed: "mushroom00")
+            
+            mushroomChance=random(min: 0, max: 10.9999999999999)
+            if mushroomChance <= 5.0
+            {
+                scene!.addChild(mushroom)
+                mushroom.zPosition=100
+            }
+        }
+    }
     
     
 }

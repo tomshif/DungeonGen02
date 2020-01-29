@@ -33,6 +33,7 @@ class MapClass
     var MAXNUMROOMS:Int=10
     
     var ROOMDISTANCE:Int=12
+    var MAXROOMDISTANCE:Int=50
     
     
     
@@ -89,7 +90,7 @@ class MapClass
                         let dist=Int(hypot(CGFloat(dy), CGFloat(dx)))
                         print("Room Distance = \(dist)")
                         
-                        if dist <= ROOMDISTANCE
+                        if dist <= ROOMDISTANCE || dist >= MAXROOMDISTANCE
                         {
                             goodSpot=false
 

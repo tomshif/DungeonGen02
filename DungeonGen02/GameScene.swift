@@ -29,7 +29,7 @@ class GameScene: SKScene {
         self.camera=cam
         addChild(cam)
         
-        tempMap=WindMapClass(width: 96, height: 96, theScene: self)
+        tempMap=EarthMapClass(width: 96, height: 96, theScene: self)
         print(tempMap!.roomPoints.count)
         print(tempMap!.roomPoints[tempMap!.startRoomIndex].x)
         print(tempMap!.roomPoints[tempMap!.startRoomIndex].y)
@@ -147,7 +147,7 @@ class GameScene: SKScene {
             } // if not nil
         } // for each node
         
-        tempMap=WindMapClass(width: 96, height: 96, theScene: self)
+        tempMap=EarthMapClass(width: 96, height: 96, theScene: self)
         
     } // respawnDungeon()
     

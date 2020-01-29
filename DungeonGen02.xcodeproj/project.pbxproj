@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4422F06C23E214FD00B522B4 /* FireMapClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4422F06B23E214FD00B522B4 /* FireMapClass.swift */; };
 		4426DB9C23DF74B300ABBEED /* WindMapClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DB9B23DF74B300ABBEED /* WindMapClass.swift */; };
 		4478693123DA3035006CB5CB /* EarthMapClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478693023DA3035006CB5CB /* EarthMapClass.swift */; };
 		F45F4AFF23B3E7C20020333B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45F4AFE23B3E7C20020333B /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4422F06B23E214FD00B522B4 /* FireMapClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireMapClass.swift; sourceTree = "<group>"; };
 		4426DB9B23DF74B300ABBEED /* WindMapClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindMapClass.swift; sourceTree = "<group>"; };
 		4478693023DA3035006CB5CB /* EarthMapClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthMapClass.swift; sourceTree = "<group>"; };
 		F45F4AFB23B3E7C20020333B /* DungeonGen02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DungeonGen02.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 				F45F4B1423B3E9E00020333B /* MapClass.swift */,
 				4478693023DA3035006CB5CB /* EarthMapClass.swift */,
 				4426DB9B23DF74B300ABBEED /* WindMapClass.swift */,
+				4422F06B23E214FD00B522B4 /* FireMapClass.swift */,
 				F45F4B1923B4EBA60020333B /* random.swift */,
 			);
 			path = DungeonGen02;
@@ -163,6 +166,7 @@
 				F45F4B0523B3E7C20020333B /* GameScene.swift in Sources */,
 				F45F4B1A23B4EBA60020333B /* random.swift in Sources */,
 				F45F4AFF23B3E7C20020333B /* AppDelegate.swift in Sources */,
+				4422F06C23E214FD00B522B4 /* FireMapClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
