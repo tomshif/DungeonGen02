@@ -28,7 +28,7 @@ class EarthMapClass:MapClass
         
         createLevel()
         drawGrid()
-        spawnMushrooms()
+        
     }
     
     
@@ -63,9 +63,39 @@ class EarthMapClass:MapClass
                        tempFloor.position.y = (CGFloat(y)*tempFloor.size.height) - (CGFloat(mapHeight)*tempFloor.size.width)/2
                        tempFloor.name="dngFloor"
                        tempFloor.texture!.filteringMode=SKTextureFilteringMode.nearest
+                       
+                       for i in 0...roomPoints.count
+                              {
+                                  print("")
+                                  let mushroom=SKSpriteNode(imageNamed: "mushroom00")
+                                  
+                                  mushroomChance=random(min: 0, max: 10.9999999999999)
+                                  if mushroomChance <= 0.1
+                                  {
+                                    scene!.addChild(mushroom)
+                                    mushroom.setScale(7.0)
+                                    mushroom.zPosition=100
+                                    mushroom.position.x=tempFloor.position.x
+                                    mushroom.position.y=tempFloor.position.y
+                                      
+                                  }
+                              }
+                       
 
                        scene!.addChild(tempFloor)
                        TILESIZE=tempFloor.size.width
+                    
+                   case 3:
+                    let tempFloor=SKSpriteNode(imageNamed: "earthFloor01")
+                    tempFloor.setScale(8.0)
+                    tempFloor.position.x = (CGFloat(x)*tempFloor.size.width) - (CGFloat(mapWidth)*tempFloor.size.width)/2
+                    tempFloor.position.y = (CGFloat(y)*tempFloor.size.height) - (CGFloat(mapHeight)*tempFloor.size.width)/2
+                    tempFloor.name="dngFloor"
+                    tempFloor.texture!.filteringMode=SKTextureFilteringMode.nearest
+                    
+                    scene!.addChild(tempFloor)
+                    TILESIZE=tempFloor.size.width
+                    
                    default:
                        break
                        
@@ -74,21 +104,7 @@ class EarthMapClass:MapClass
            } // for y
     }
     
-    func spawnMushrooms()
-    {
-        for i in 0...roomPoints.count
-        {
-            print("")
-            let mushroom=SKSpriteNode(imageNamed: "mushroom00")
-            
-            mushroomChance=random(min: 0, max: 10.9999999999999)
-            if mushroomChance <= 5.0
-            {
-                scene!.addChild(mushroom)
-                mushroom.zPosition=100
-            }
-        }
-    }
+   
     
     
 }

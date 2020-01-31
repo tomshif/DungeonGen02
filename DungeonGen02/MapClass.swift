@@ -37,6 +37,8 @@ class MapClass
     
     
     
+    
+    
     init(width:Int, height:Int, theScene: GameScene)
     {
         scene=theScene
@@ -292,7 +294,7 @@ class MapClass
                      for yPath in 0..<dy
                      {
 
-                         mapGrid[(roomPoints[i].y-yPath)*mapWidth+roomPoints[i].x-dx]=2
+                         mapGrid[(roomPoints[i].y-yPath)*mapWidth+roomPoints[i].x-dx]=3
                      } // for each y difference
                  } // if drawing up
                  else if dy < 0
@@ -300,7 +302,7 @@ class MapClass
                      for yPath in 0 ..< (-dy)
                      {
 
-                         mapGrid[(roomPoints[i].y+yPath)*mapWidth+roomPoints[i].x-dx]=2
+                         mapGrid[(roomPoints[i].y+yPath)*mapWidth+roomPoints[i].x-dx]=3
                      } // for each y difference
                  } // else if drawing down
                  
