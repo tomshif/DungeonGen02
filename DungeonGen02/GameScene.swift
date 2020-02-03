@@ -147,6 +147,20 @@ class GameScene: SKScene {
             } // if not nil
         } // for each node
         
+        
+        
+        for node in self.children
+        {
+            if node.name != nil
+            {
+                if node.name!.contains("mushroom")
+                {
+                    node.removeFromParent()
+                }
+            }
+        }
+        
+        
         tempMap=EarthMapClass(width: 96, height: 96, theScene: self)
         
     } // respawnDungeon()
